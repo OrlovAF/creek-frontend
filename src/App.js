@@ -92,8 +92,8 @@ class App extends Component {
   getChartValues(data) {
     return data.map((metric, index) => ({
       x: moment(metric.date).format('H'),
-      y: metric.value,
-    }));
+      y: parseInt(metric.value, 10),
+    })).filter((e, i) => i < 24);
   }
 
   getCategories() {
